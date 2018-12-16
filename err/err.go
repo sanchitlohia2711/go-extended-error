@@ -27,7 +27,7 @@ type ExtendedError struct {
 }
 
 var (
-	errorJSON map[string]ExtendedError
+	errorJSON map[string]*ExtendedError
 )
 
 const (
@@ -55,7 +55,7 @@ func Initialize(configurationFileAbsPath string) (err error) {
 }
 
 //NewExtendedError : Create a instance of extended error
-func NewExtendedError(errorCode string, args ...interface{}) (eError ExtendedError) {
+func NewExtendedError(errorCode string, args ...interface{}) (eError *ExtendedError) {
 	eError = errorJSON[errorCode]
 	eError.Message = fmt.Sprintf(eError.Message, args)
 	eError.CustomerMessage = fmt.Sprintf(eError.CustomerMessage, args)
