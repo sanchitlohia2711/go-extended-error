@@ -1,4 +1,4 @@
-package err
+package exerr
 
 import (
 	"encoding/json"
