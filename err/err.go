@@ -61,3 +61,7 @@ func NewExtendedError(errorCode string, args ...interface{}) (eError ExtendedErr
 	eError.CustomerMessage = fmt.Sprintf(eError.CustomerMessage, args)
 	return eError
 }
+
+func (e *ExtendedError) Error() (errorString string) {
+	return e.Message
+}
