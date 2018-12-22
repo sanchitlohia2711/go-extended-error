@@ -24,6 +24,7 @@ type ExtendedError struct {
 	Message         string `json:"message"`
 	CustomerMessage string `json:"customer_message"`
 	HTTPStatus      int    `json:"http_status"`
+	Code            string `json:"code"`
 }
 
 var (
@@ -59,6 +60,7 @@ func NewExtendedError(errorCode string, args ...interface{}) (eError *ExtendedEr
 	eError = errorJSON[errorCode]
 	eError.Message = fmt.Sprintf(eError.Message, args)
 	eError.CustomerMessage = fmt.Sprintf(eError.CustomerMessage, args)
+	eError.Code = errorCode
 	return eError
 }
 
